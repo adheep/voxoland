@@ -17,8 +17,8 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 const pages = [{ name: 'Explore', url : ''},
     { name: 'Map', url: ''},
     { name : 'Buy Parcels', url : ''},
-    { name: 'Marketplace', url: ''},
-    { name: 'Support', url: ''}, { name: 'Sign In', url: '/signin'}];
+    { name: 'Marketplace', url: '/marketplace'},
+    { name: 'Support', url: ''}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Layout = () => {
@@ -85,8 +85,8 @@ const Layout = () => {
             >
               {pages.map((page) => (
                 
-                <MenuItem   onClick={handleCloseNavMenu}>
-                    <Link  to={page.url}>  <Typography textAlign="center">{page?.name}</Typography></Link>
+                <MenuItem key={page.name}   onClick={handleCloseNavMenu}>
+                    <Link   to={page.url}>  <Typography textAlign="center">{page?.name}</Typography></Link>
                  
                 </MenuItem>
               ))}
@@ -112,6 +112,17 @@ const Layout = () => {
               </Button>
               </Link>
             ))}
+          </Box>
+
+          <Box sx={{ flexGrow: 0 }}>
+          <Link  to='/signin'>
+              <Button
+               
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+               Sign in
+              </Button>
+              </Link>
           </Box>
 
           
