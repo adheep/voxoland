@@ -3,18 +3,20 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import ButtonBase from "@mui/material/ButtonBase";
 import Typography from "@mui/material/Typography";
-import { Container, Grid, Paper } from "@mui/material";
+import { Container, Grid, Paper, Button, Link } from "@mui/material";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import RedditIcon from "@mui/icons-material/Reddit";
-import TwitterIcon from "@mui/icons-material/Twitter";
-
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import ListItem from "@mui/material/ListItem";
+import { makeStyles } from "@material-ui/core/styles";
 
 import Divider from "@mui/material/Divider";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -149,11 +151,11 @@ const ImageMarked = styled("span")(({ theme }) => ({
 }));
 
 const Item = styled("div")(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  backgroundColor: theme.palette.mode === "dark" ? "#13172b" : "#13172b",
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
-  color: theme.palette.text.secondary,
+  color: "#fff",
   width: "100%",
 }));
 
@@ -162,6 +164,14 @@ const Div = styled("div")(({ theme }) => ({
   backgroundColor: "red",
   padding: theme.spacing(1),
   height: 20,
+}));
+const MainDiv = styled("div")(({ theme }) => ({
+  backgroundColor: "#13172b",
+  height: "100%",
+}));
+
+const SideDiv = styled("div")(({ theme }) => ({
+  marginTop: "23px",
 }));
 
 const ODiv = styled("div")(({ theme }) => ({}));
@@ -199,7 +209,30 @@ function a11yProps(index) {
   };
 }
 
+const social = [
+  { name: "GitHub", icon: GitHubIcon },
+  { name: "Twitter", icon: TwitterIcon },
+  { name: "Facebook", icon: FacebookIcon },
+];
+
+const useStyles = makeStyles((theme) => ({
+  sidebarAboutBox: {
+    padding: theme.spacing(2),
+  },
+  sidebarSection: {
+    marginTop: theme.spacing(3),
+    color: '#fff'
+  },
+  sidebarLink: {
+    marginLeft: theme.spacing(18),
+    marginTop: theme.spacing(3),
+    color: '#fff'
+  },
+}));
+
 export default function Home() {
+  const classes = useStyles();
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -207,345 +240,353 @@ export default function Home() {
   };
   return (
     <>
-      <Box
-        sx={{ display: "flex", flexWrap: "wrap", minWidth: 500, width: "100%" }}
-      >
-        <ImageButton
-          focusRipple
-          key="Play now"
-          style={{
-            width: "100%",
-          }}
+      <MainDiv>
+        <Box sx={{ display: "flex", flexWrap: "wrap", width: "100%" }}>
+          <div class="v45_4816">
+            <div class="v45_4881">
+              <div class="v45_4882">
+                <div class="v45_4883">
+                  <span class="v45_4884">Play now</span>
+                </div>
+                <span class="v45_4885">in your browser or create a</span>
+                <div class="v45_4886">
+                  <span class="v45_4887">Free Space</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Box>
+        <Container
+          sx={{ backgroundColor: "#13172b", width: "100% !important" }}
         >
-          <ImageSrc
-            style={{
-              backgroundImage: `url(https://png.pngtree.com/thumb_back/fh260/back_pic/04/48/50/00585a3568a0a7d.jpg)`,
-            }}
-          />
-          <ImageBackdrop className="MuiImageBackdrop-root" />
-          <Image>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              sx={{
-                position: "relative",
-                p: 4,
-                pt: 2,
-                pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-              }}
-            >
-              Play Now
-              <ImageMarked className="MuiImageMarked-root" />
-            </Typography>
-          </Image>
-        </ImageButton>
-      </Box>
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
-            <Item>
-              <Typography variant="h4" color="inherit">
-                Cryptovoxels - a user owned virtual world
-              </Typography>
-              <Typography variant="p" color="inherit">
-                Cryptovoxels is a virtual world and metaverse, powered by the
-                Ethereum blockchain. Players can buy land and build stores and
-                art galleries. Editing tools, avatars and text chat are built
-                in.
-              </Typography>
-            </Item>
-          </Grid>
-          <Grid item xs={4}>
-            <Item>
-              <List
-                sx={{
-                  width: "100%",
-                  maxWidth: 360,
-                  bgcolor: "background.paper",
-                }}
-                aria-labelledby="nested-list-subheader"
-              >
-                <ListItemButton>
-                  <ListItemIcon>
-                    <TwitterIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Twitter" />
-                </ListItemButton>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <RedditIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Reddit" />
-                </ListItemButton>
-              </List>
-            </Item>
-          </Grid>
-        </Grid>
-      </Container>
+          <Grid container spacing={2} sx={{ height: 300 }}>
+            <Grid item xs={8}>
+              <Item>
+                <div class="v45_4817">
+                  <span class="v45_4818">
+                    Product name - a user owned virtual world
+                  </span>
+                  <span class="v45_4819">
+                    Product name is a virtual world and metaverse, powered by
+                    the Ethereum blockchain. Players can buy land and build
+                    stores and art galleries. Editing tools, avatars and text
+                    chat are built in.
+                  </span>
+                </div>
 
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={5}>
-            <Item>
-              <Typography variant="h6" color="inherit">
-                Popular Parcels
-              </Typography>
-              <Typography variant="p" color="inherit">
-                Popular Parcels based on world visits
-              </Typography>
-
-              <Box sx={{ width: "100%" }}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                  <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    aria-label="basic tabs example"
-                  >
-                    <Tab label="Today" {...a11yProps(0)} />
-                    <Tab label="Month" {...a11yProps(1)} />
-                    <Tab label="All" {...a11yProps(2)} />
-                  </Tabs>
+                <Box sx={{ "& button": { m: 1 }, marginTop: "187px" }}>
+                  <div>
+                    <Button
+                      variant="contained"
+                      sx={{ fontSize: 16, fontWeight: 600 }}
+                      size="large"
+                      color="success"
+                    >
+                      Explore Map
+                    </Button>
+                    <Button
+                      variant="contained"
+                      sx={{ fontSize: 16, fontWeight: 600 }}
+                      size="large"
+                      color="info"
+                    >
+                      Explore Marketplace
+                    </Button>
+                  </div>
                 </Box>
-                <TabPanel value={value} index={0}>
-                  <List
-                    sx={{
-                      width: "100%",
-                      maxWidth: 360,
-                      bgcolor: "background.paper",
-                    }}
-                  >
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="RIvermenverse"
-                        secondary={
-                          <React.Fragment>{" — 1122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Inasdeasfe"
-                        secondary={
-                          <React.Fragment>{" — 32 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Teschaljsdfae"
-                        secondary={
-                          <React.Fragment>{" — 122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                  </List>
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                  <List
-                    sx={{
-                      width: "100%",
-                      maxWidth: 360,
-                      bgcolor: "background.paper",
-                    }}
-                  >
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="RIvermenverse"
-                        secondary={
-                          <React.Fragment>{" — 1122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Inasdeasfe"
-                        secondary={
-                          <React.Fragment>{" — 32 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Teschaljsdfae"
-                        secondary={
-                          <React.Fragment>{" — 122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                  </List>
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                  <List
-                    sx={{
-                      width: "100%",
-                      maxWidth: 360,
-                      bgcolor: "background.paper",
-                    }}
-                  >
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="RIvermenverse"
-                        secondary={
-                          <React.Fragment>{" — 1122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Inasdeasfe"
-                        secondary={
-                          <React.Fragment>{" — 32 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem alignItems="flex-start">
-                      <ListItemAvatar>🏠</ListItemAvatar>
-                      <ListItemText
-                        primary="Teschaljsdfae"
-                        secondary={
-                          <React.Fragment>{" — 122 visits"}</React.Fragment>
-                        }
-                      />
-                    </ListItem>
-                  </List>
-                </TabPanel>
-              </Box>
-            </Item>
+              </Item>
+            </Grid>
+            <Grid item xs={4}>
+              <SideDiv>
+                <Typography
+                  variant="h6"
+                  gutterBottom
+                  className={classes.sidebarSection}
+                >
+                  Social
+                </Typography>
+                {social.map((network) => (
+                  <Link display="block" variant="body1" href="#" className={classes.sidebarLink}>
+                    <Grid
+                      container
+                      direction="row"
+                      spacing={1}
+                      alignItems="center"
+                    >
+                      <Grid item>
+                        <network.icon />
+                      </Grid>
+                      <Grid item>{network.name}</Grid>
+                    </Grid>
+                  </Link>
+                ))}
+              </SideDiv>
+            </Grid>
           </Grid>
-          <Grid item xs={7}>
-            <Item>
-              <Typography variant="h6" color="inherit">
-                Community events
-              </Typography>
-              <Typography variant="p" color="inherit">
-                User-created and hosted events. Click on an event for more info!
-              </Typography>
 
-              <Box
-                sx={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  "& > :not(style)": {
-                    m: 1,
-                    width: 200,
-                    height: 200,
-                  },
-                }}
-              >
-                <Paper elevation={1}>
-                  <Div>
-                    {/* <p > */}
-                    POEM = WORK OF ART...
-                    {/* </p> */}
-                  </Div>
-                  <ODiv>
-                    <Typography variant="p" gutterBottom>
-                      POEM = WORK OF ART documents the early days of poetry on
-                      the blockchain and explores how new technologies are
-                      empowering language ...
-                    </Typography>
-                  </ODiv>
-                  <ODiv>
-                    <Typography variant="caption" gutterBottom>
-                      <small>
-                        Happening now (ends at 11:36 pm on Wednesday)
-                      </small>
-                      <small>1 player present.</small>
-                    </Typography>
-                  </ODiv>
-                </Paper>
-                <Paper elevation={2}>
-                  <Div>
-                    {/* <p > */}I think first floor
-                    {/* </p> */}
-                  </Div>
-                  <ODiv>
-                    <Typography variant="p" gutterBottom>
-                      That way, when you're tired at work, you can come down and
-                      have a cup of coffee
-                    </Typography>
-                  </ODiv>
-                  <ODiv>
-                    <Typography variant="caption" gutterBottom>
-                      <small>
-                        Happening now (ends at 11:36 pm on Wednesday)
-                      </small>
-                      <small>1 player present.</small>
-                    </Typography>
-                  </ODiv>
-                </Paper>
-                <Paper elevation={3}>
-                  <Div sx={{ background: "blue" }}>
-                    {/* <p > */}
-                    Do you want gaint.
-                    {/* </p> */}
-                  </Div>
-                  <ODiv>
-                    <Typography variant="p" gutterBottom>
-                      Everything is in the meta-universe, and that's the beauty
-                      of the meta-universe
-                    </Typography>
-                  </ODiv>
-                  <ODiv>
-                    <Typography variant="caption" gutterBottom>
-                      <small>
-                        Happening now (ends at 11:36 pm on Wednesday)
-                      </small>
-                      <small>1 player present.</small>
-                    </Typography>
-                  </ODiv>
-                </Paper>
-              </Box>
-            </Item>
+          <Grid container spacing={2}>
+            <Grid item xs={5}>
+              <Item>
+                <Typography variant="h6" color="inherit">
+                  Popular Parcels
+                </Typography>
+                <Typography variant="p" color="inherit">
+                  Popular Parcels based on world visits
+                </Typography>
 
-            <Item>
-              <Typography variant="h6" gutterBottom component="div">
-                Recent Womps
-              </Typography>
-              <Typography variant="subtitle1" gutterBottom component="div">
-                Screenshots taken by users in world. Click a womp to instantly
-                teleport to the location in your browser.
-              </Typography>
+                <Box sx={{ width: "100%" }}>
+                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <Tabs
+                      value={value}
+                      onChange={handleChange}
+                      aria-label="basic tabs example"
+                    >
+                      <Tab label="Today" {...a11yProps(0)} />
+                      <Tab label="Month" {...a11yProps(1)} />
+                      <Tab label="All" {...a11yProps(2)} />
+                    </Tabs>
+                  </Box>
+                  <TabPanel value={value} index={0}>
+                    <List
+                      sx={{
+                        width: "100%",
+                        maxWidth: 360,
+                        bgcolor: "background.paper",
+                      }}
+                    >
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="RIvermenverse"
+                          secondary={
+                            <React.Fragment>{" — 1122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Inasdeasfe"
+                          secondary={
+                            <React.Fragment>{" — 32 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Teschaljsdfae"
+                          secondary={
+                            <React.Fragment>{" — 122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                    </List>
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                    <List
+                      sx={{
+                        width: "100%",
+                        maxWidth: 360,
+                        bgcolor: "background.paper",
+                      }}
+                    >
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="RIvermenverse"
+                          secondary={
+                            <React.Fragment>{" — 1122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Inasdeasfe"
+                          secondary={
+                            <React.Fragment>{" — 32 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Teschaljsdfae"
+                          secondary={
+                            <React.Fragment>{" — 122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                    </List>
+                  </TabPanel>
+                  <TabPanel value={value} index={2}>
+                    <List
+                      sx={{
+                        width: "100%",
+                        maxWidth: 360,
+                        bgcolor: "background.paper",
+                      }}
+                    >
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="RIvermenverse"
+                          secondary={
+                            <React.Fragment>{" — 1122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Inasdeasfe"
+                          secondary={
+                            <React.Fragment>{" — 32 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>🏠</ListItemAvatar>
+                        <ListItemText
+                          primary="Teschaljsdfae"
+                          secondary={
+                            <React.Fragment>{" — 122 visits"}</React.Fragment>
+                          }
+                        />
+                      </ListItem>
+                    </List>
+                  </TabPanel>
+                </Box>
+              </Item>
+            </Grid>
+            <Grid item xs={7}>
+              <Item>
+                <Typography variant="h6" color="inherit">
+                  Community events
+                </Typography>
+                <Typography variant="p" color="inherit">
+                  User-created and hosted events. Click on an event for more
+                  info!
+                </Typography>
 
-              <ODiv sx={{ background: "#4c3456cf" }}>
-                <ImageList cols={3}>
-                  {itemData.map((item) => (
-                    <ImageListItem key={item.img} sx={{ padding: "12px" }}>
-                      <img
-                        src={`${item.img}?w=248&fit=crop&auto=format`}
-                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        alt={item.title}
-                        loading="lazy"
-                      />
-                      <ImageListItemBar
-                        sx={{ background: "#fff" }}
-                        title={item.title}
-                        subtitle={<span>{item.author}</span>}
-                        position="below"
-                      />
-                    </ImageListItem>
-                  ))}
-                </ImageList>
-              </ODiv>
-            </Item>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    "& > :not(style)": {
+                      m: 1,
+                      width: 200,
+                      height: 200,
+                    },
+                  }}
+                >
+                  <Paper elevation={1}>
+                    <Div>
+                      {/* <p > */}
+                      POEM = WORK OF ART...
+                      {/* </p> */}
+                    </Div>
+                    <ODiv>
+                      <Typography variant="p" gutterBottom>
+                        POEM = WORK OF ART documents the early days of poetry on
+                        the blockchain and explores how new technologies are
+                        empowering language ...
+                      </Typography>
+                    </ODiv>
+                    <ODiv>
+                      <Typography variant="caption" gutterBottom>
+                        <small>
+                          Happening now (ends at 11:36 pm on Wednesday)
+                        </small>
+                        <small>1 player present.</small>
+                      </Typography>
+                    </ODiv>
+                  </Paper>
+                  <Paper elevation={2}>
+                    <Div>
+                      {/* <p > */}I think first floor
+                      {/* </p> */}
+                    </Div>
+                    <ODiv>
+                      <Typography variant="p" gutterBottom>
+                        That way, when you're tired at work, you can come down
+                        and have a cup of coffee
+                      </Typography>
+                    </ODiv>
+                    <ODiv>
+                      <Typography variant="caption" gutterBottom>
+                        <small>
+                          Happening now (ends at 11:36 pm on Wednesday)
+                        </small>
+                        <small>1 player present.</small>
+                      </Typography>
+                    </ODiv>
+                  </Paper>
+                  <Paper elevation={3}>
+                    <Div sx={{ background: "blue" }}>
+                      {/* <p > */}
+                      Do you want gaint.
+                      {/* </p> */}
+                    </Div>
+                    <ODiv>
+                      <Typography variant="p" gutterBottom>
+                        Everything is in the meta-universe, and that's the
+                        beauty of the meta-universe
+                      </Typography>
+                    </ODiv>
+                    <ODiv>
+                      <Typography variant="caption" gutterBottom>
+                        <small>
+                          Happening now (ends at 11:36 pm on Wednesday)
+                        </small>
+                        <small>1 player present.</small>
+                      </Typography>
+                    </ODiv>
+                  </Paper>
+                </Box>
+              </Item>
+
+              <Item>
+                <Typography variant="h6" gutterBottom component="div">
+                  Recent Womps
+                </Typography>
+                <Typography variant="subtitle1" gutterBottom component="div">
+                  Screenshots taken by users in world. Click a womp to instantly
+                  teleport to the location in your browser.
+                </Typography>
+
+                <ODiv sx={{ background: "#4c3456cf" }}>
+                  <ImageList cols={3}>
+                    {itemData.map((item) => (
+                      <ImageListItem key={item.img} sx={{ padding: "12px" }}>
+                        <img
+                          src={`${item.img}?w=248&fit=crop&auto=format`}
+                          srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                          alt={item.title}
+                          loading="lazy"
+                        />
+                        <ImageListItemBar
+                          sx={{ background: "#fff" }}
+                          title={item.title}
+                          subtitle={<span>{item.author}</span>}
+                          position="below"
+                        />
+                      </ImageListItem>
+                    ))}
+                  </ImageList>
+                </ODiv>
+              </Item>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </MainDiv>
     </>
   );
 }

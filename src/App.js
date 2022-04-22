@@ -5,6 +5,8 @@ import Layout from "./Layout/Layout"
 import Login from './Pages/Login';
 import Home from './Pages/Home'
 import Marketplace from './Pages/MarketPlace';
+import ViewMap from './Pages/Map/Map';
+import Sample from './Pages/Sample';
 function App() {
   return (
     <div className="App">
@@ -14,6 +16,8 @@ function App() {
           <Route path="signin" element={<Login />} />
           <Route path="" element={<Home />} />
           <Route path="marketplace" element={<Marketplace />} />
+          <Route path="map" element={<ViewMap />} />
+          <Route path="sample" element={<Sample />} />
 
           {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
